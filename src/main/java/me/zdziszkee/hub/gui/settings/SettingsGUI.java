@@ -54,7 +54,7 @@ public class SettingsGUI implements GUI {
             player.setFlying(!player.isFlying());
             updateInventory();
         }
-        if(slot==7){
+        if(slot==25){
             player.sendMessage(ChatColor.translateAlternateColorCodes('&',generalConfiguration.getComingSoonMessage()));
         }
         if(slot==16){
@@ -86,7 +86,7 @@ public class SettingsGUI implements GUI {
         temp.setItem(13,settingsGUIConfiguration.getTimeItem().getItemStack());
         temp.setItem(22,settingsGUIConfiguration.getFlyItem().replacePlaceHolder("%status%",player.isFlying()?enabled:disabled).getItemStack());
 
-        temp.setItem(7,settingsGUIConfiguration.getPetsItem().getItemStack());
+        temp.setItem(25,settingsGUIConfiguration.getPetsItem().getItemStack());
         temp.setItem(16,settingsGUIConfiguration.getParticlesItem().getItemStack());
         temp.setItem(39,settingsGUIConfiguration.getBackItem().getItemStack());
         temp.setItem(41,settingsGUIConfiguration.getExitItem().getItemStack());

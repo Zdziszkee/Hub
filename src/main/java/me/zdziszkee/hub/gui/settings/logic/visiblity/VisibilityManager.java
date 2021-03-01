@@ -13,6 +13,13 @@ public class VisibilityManager {
     private void setPlayerVisibility(Player player, boolean visibility){
         playerVisibility.put(player.getUniqueId(),visibility);
     }
+
+    public void removePlayer(UUID uuid){
+        playerVisibility.remove(uuid);
+    }
+    public void addPlayer(UUID uuid,boolean shouldSeeOtherPlayers){
+        this.playerVisibility.put(uuid,shouldSeeOtherPlayers);
+    }
     public void enablePlayerVisibility(Player player){
         setPlayerVisibility(player,true);
         Bukkit.getOnlinePlayers().forEach(target -> target.showPlayer(player));

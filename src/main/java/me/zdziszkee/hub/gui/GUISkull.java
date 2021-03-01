@@ -36,8 +36,8 @@ public class GUISkull {
         ItemStack itemStack = new ItemStack(Material.SKULL_ITEM,1,(short) 3);
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.addItemFlags(ItemFlag.values());
-        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',displayName));
-        itemMeta.setLore(lore.stream().map(s -> ChatColor.translateAlternateColorCodes('&',s)).collect(Collectors.toList()));
+        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', displayName));
+        itemMeta.setLore(lore.stream().map(s -> ChatColor.translateAlternateColorCodes('&', s)).collect(Collectors.toList()));
         itemStack.setItemMeta(itemMeta);
         return SkullCreator.getCustomTextureHead(itemStack,headSkinInBase64);
     }

@@ -12,6 +12,12 @@ public class ChatManager {
     private void setPlayerChat(Player player, boolean isEnabled){
         isPlayerChatEnabledMap.put(player.getUniqueId(),isEnabled);
     }
+    public void  addPlayer(UUID uuid,boolean shouldReceiveMessages){
+        isPlayerChatEnabledMap.put(uuid,shouldReceiveMessages);
+    }
+    public void removePlayer(UUID uuid){
+        isPlayerChatEnabledMap.remove(uuid);
+    }
     public void enablePlayerChat(Player player){
         setPlayerChat(player,true);
     }

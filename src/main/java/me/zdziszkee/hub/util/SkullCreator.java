@@ -3,6 +3,7 @@ package me.zdziszkee.hub.util;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import org.bukkit.Material;
+import org.bukkit.SkullType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -13,7 +14,7 @@ import java.util.UUID;
 
 public class SkullCreator {
 public static ItemStack getPlayerHead(String player){
-    ItemStack itemStack = new ItemStack(Material.SKULL_ITEM);
+    ItemStack itemStack = new ItemStack(Material.SKULL_ITEM,1, (short) SkullType.PLAYER.ordinal());
     SkullMeta meta = (SkullMeta) itemStack.getItemMeta();
     meta.setOwner(player);
     itemStack.setItemMeta(meta);

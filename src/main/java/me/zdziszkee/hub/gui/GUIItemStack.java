@@ -25,8 +25,8 @@ public class GUIItemStack {
         ItemStack itemStack = new ItemStack(material);
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.addItemFlags(ItemFlag.values());
-        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',displayName));
-        itemMeta.setLore(lore.stream().map(s -> ChatColor.translateAlternateColorCodes('&',s)).collect(Collectors.toList()));
+        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', displayName));
+        itemMeta.setLore(lore.stream().map(s -> ChatColor.translateAlternateColorCodes('&', s)).collect(Collectors.toList()));
         itemStack.setItemMeta(itemMeta);
         return itemStack;
     }
