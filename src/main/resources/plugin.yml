@@ -1,3 +1,5 @@
 name: Hub
 main: me.zdziszkee.hub.Hub
 version: 1.0.0
+depend:
+  - WysCore

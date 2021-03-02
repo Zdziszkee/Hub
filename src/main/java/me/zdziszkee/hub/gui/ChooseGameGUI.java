@@ -1,10 +1,8 @@
-package me.zdziszkee.hub.gui.choosegame;
+package me.zdziszkee.hub.gui;
 
 import me.zdziszkee.hub.configuration.ChooseGameGUIConfiguration;
-import me.zdziszkee.hub.gui.GUI;
-import me.zdziszkee.hub.gui.PositionalGUIItemStack;
-import me.zdziszkee.hub.gui.PositionalGUISkull;
 import me.zdziszkee.hub.util.Coordinates;
+import me.zdziszkee.hub.util.ServerConnectorUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -35,6 +33,7 @@ public class ChooseGameGUI implements GUI {
         int slot = inventoryClickEvent.getSlot();
 
         if (slot == chooseGameGUIConfiguration.getServerTeleport().getSlot()) {
+            ServerConnectorUtil.connect(player,chooseGameGUIConfiguration.getGameServerName());
         }
         if (slot == chooseGameGUIConfiguration.getExitItemStack().getSlot()) {
             player.closeInventory();

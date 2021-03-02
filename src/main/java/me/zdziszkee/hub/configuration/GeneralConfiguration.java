@@ -7,7 +7,7 @@ import me.zdziszkee.hub.gui.GUIItemStack;
 import me.zdziszkee.hub.gui.GUIHead;
 import org.bukkit.Material;
 @Getter
-@Configuration(name = "generalconfiguration.json")
+@Configuration( "generalconfiguration.json")
 public class GeneralConfiguration extends Config {
     private GUIHead profileItem = new GUIHead( "example", "example");
     private GUIItemStack chooseGames = new GUIItemStack("example", Material.EYE_OF_ENDER, "lore");

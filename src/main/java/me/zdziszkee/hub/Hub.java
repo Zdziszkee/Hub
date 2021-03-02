@@ -42,6 +42,7 @@ public class Hub extends JavaPlugin {
         pluginManager.registerEvents(new BlockPlaceListener(),this);
         pluginManager.registerEvents(new DropItemListener(),this);
         pluginManager.registerEvents(new PlayerQuitListener(chatManager,visibilityManager),this);
+        pluginManager.registerEvents(new PlayerPickupListener(),this);
     }
     @Override
     public void onDisable() {

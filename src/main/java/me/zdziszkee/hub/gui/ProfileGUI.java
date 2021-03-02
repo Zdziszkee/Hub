@@ -1,18 +1,22 @@
-package me.zdziszkee.hub.gui.profile;
+package me.zdziszkee.hub.gui;
 
 import me.zdziszkee.hub.configuration.GeneralConfiguration;
 import me.zdziszkee.hub.configuration.ProfileGUIConfiguration;
 import me.zdziszkee.hub.configuration.SettingsGUIConfiguration;
-import me.zdziszkee.hub.gui.GUI;
 import me.zdziszkee.hub.gui.settings.SettingsGUI;
 import me.zdziszkee.hub.gui.settings.logic.chat.ChatManager;
 import me.zdziszkee.hub.gui.settings.logic.visiblity.VisibilityManager;
+import me.zdziszkee.hub.util.TimeUtil;
+import me.zdziszkee.wyscore.currency.CurrencyPack;
+import me.zdziszkee.wyscore.database.service.PlayerService;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+
+import java.time.format.DateTimeFormatter;
 
 public class ProfileGUI implements GUI {
     private final ProfileGUIConfiguration userGUIConfiguration;
@@ -22,8 +26,9 @@ public class ProfileGUI implements GUI {
     private final ChatManager chatManager;
     private final VisibilityManager visibilityManager;
     private final GeneralConfiguration generalConfiguration;
-
-    public ProfileGUI(ProfileGUIConfiguration userGUIConfiguration, Player player, SettingsGUIConfiguration settingsGUIConfiguration, ChatManager chatManager, VisibilityManager visibilityManager, GeneralConfiguration generalConfiguration) {
+    private final PlayerService.PlayerData playerData;
+    private final CurrencyPack currencyPack;
+    public ProfileGUI(ProfileGUIConfiguration userGUIConfiguration, Player player, SettingsGUIConfiguration settingsGUIConfiguration, ChatManager chatManager, VisibilityManager visibilityManager, GeneralConfiguration generalConfiguration, PlayerService.PlayerData playerData,CurrencyPack currencyPack) {
         this.userGUIConfiguration = userGUIConfiguration;
         this.player = player;
         inventory = Bukkit.createInventory(this, 45, ChatColor.translateAlternateColorCodes('&', userGUIConfiguration.getGuiName()));
@@ -31,6 +36,8 @@ public class ProfileGUI implements GUI {
         this.chatManager = chatManager;
         this.visibilityManager = visibilityManager;
         this.generalConfiguration = generalConfiguration;
+        this.playerData = playerData;
+        this.currencyPack = currencyPack;
     }
 
     @Override
@@ -57,9 +64,16 @@ public class ProfileGUI implements GUI {
     }
 
     public ItemStack[] getInventoryContents() {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
         Inventory temp = Bukkit.createInventory(null, 45);
         temp.setItem(20, userGUIConfiguration.getNickNameItem().getItemStack());
-        temp.setItem(22, userGUIConfiguration.getPlayerHead().setHeadOwner(player.getName()).replacePlaceHolder("%player%", player.getName()).getItemStack());
+        temp.setItem(22, userGUIConfiguration.getPlayerHead().setHeadOwner(player.getName()).replacePlaceHolder("%player%", player.getName())
+                .replacePlaceHolder("%firstjoin%",playerData.getFirstJoinTime().format(dateTimeFormatter))
+                .replacePlaceHolder("%onelinetime%", String.valueOf(TimeUtil.convertMillisToDays(playerData.getOnlineTimeInMillis())))
+                .replacePlaceHolder("%money%", String.valueOf(currencyPack.getMoney()))
+                .replacePlaceHolder("%bezants%",String.valueOf(currencyPack.getBezants()))
+                .replacePlaceHolder("%keys%",String.valueOf(currencyPack.getKeys()))
+                .getItemStack());
         temp.setItem(24, userGUIConfiguration.getSettingsItem().getItemStack());
         temp.setItem(40, userGUIConfiguration.getExitItem().getItemStack());
         return temp.getContents();

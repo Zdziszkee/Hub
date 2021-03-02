@@ -18,7 +18,7 @@ public class PlayerJoinListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event){
         Player player = event.getPlayer();
         PlayerInventory playerInventory = player.getInventory();
-
+        player.getInventory().clear();
         playerInventory.setItem(0,generalConfiguration.getProfileItem().setHeadOwner(player.getName()).getItemStack());
         playerInventory.setItem(4,generalConfiguration.getChooseGames().getItemStack());
         playerInventory.setItem(8,generalConfiguration.getThirdItem().getItemStack());

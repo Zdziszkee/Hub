@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import me.zdziszkee.hub.configuration.GeneralConfiguration;
 import me.zdziszkee.hub.configuration.SettingsGUIConfiguration;
 import me.zdziszkee.hub.gui.GUI;
-import me.zdziszkee.hub.gui.profile.ProfileGUI;
+import me.zdziszkee.hub.gui.ProfileGUI;
 import me.zdziszkee.hub.gui.settings.logic.chat.ChatManager;
 import me.zdziszkee.hub.gui.settings.logic.visiblity.VisibilityManager;
 import org.bukkit.Bukkit;

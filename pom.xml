@@ -36,6 +36,13 @@
             <version>0.5.0-20170603.043155-1</version>
         </dependency>
         <dependency>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-api</artifactId>
+            <version>1.8-SNAPSHOT</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.16</version>
@@ -49,8 +56,15 @@
         <dependency>
             <groupId>com.github.slighterr12</groupId>
             <artifactId>SimpleJSONConfig</artifactId>
-            <version>32e62403f6</version>
-            <scope>compile</scope>
+            <version>732225f</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.zdziszkee.wyscore</groupId>
+            <artifactId>WysCore</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Server/plugins/Wys-CORE.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
