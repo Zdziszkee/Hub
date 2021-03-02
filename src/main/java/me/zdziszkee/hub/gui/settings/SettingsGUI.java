@@ -17,7 +17,7 @@ import org.bukkit.inventory.ItemStack;
 @RequiredArgsConstructor
 public class SettingsGUI implements GUI {
     private final static String enabled = "&aEnabled";
-    private final static String disabled = "&aDisabled";
+    private final static String disabled = "&cDisabled";
     private final SettingsGUIConfiguration settingsGUIConfiguration;
     private final VisibilityManager visibilityManager;
     private final ChatManager chatManager;
@@ -51,6 +51,7 @@ public class SettingsGUI implements GUI {
             updateInventory();
         }
         if(slot==22){
+            player.setAllowFlight(true);
             player.setFlying(!player.isFlying());
             updateInventory();
         }
@@ -84,7 +85,7 @@ public class SettingsGUI implements GUI {
         temp.setItem(10,settingsGUIConfiguration.getVisibilityItem().clone().replacePlaceHolder("%status%", visibilityManager.getPlayerVisibility(player)?enabled:disabled).getItemStack());
         temp.setItem(19,settingsGUIConfiguration.getChatItem().clone().replacePlaceHolder("%status%", chatManager.getPlayerChatStatus(player)?enabled:disabled).getItemStack());
         temp.setItem(13,settingsGUIConfiguration.getTimeItem().getItemStack());
-        temp.setItem(22,settingsGUIConfiguration.getFlyItem().replacePlaceHolder("%status%",player.isFlying()?enabled:disabled).getItemStack());
+        temp.setItem(22,settingsGUIConfiguration.getFlyItem().replacePlaceHolder("%status%",player.getAllowFlight()?enabled:disabled).getItemStack());
 
         temp.setItem(25,settingsGUIConfiguration.getPetsItem().getItemStack());
         temp.setItem(16,settingsGUIConfiguration.getParticlesItem().getItemStack());

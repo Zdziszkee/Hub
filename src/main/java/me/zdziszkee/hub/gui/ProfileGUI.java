@@ -16,6 +16,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class ProfileGUI implements GUI {
@@ -64,12 +65,12 @@ public class ProfileGUI implements GUI {
     }
 
     public ItemStack[] getInventoryContents() {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+        LocalDate date = playerData.getFirstJoinTime();
         Inventory temp = Bukkit.createInventory(null, 45);
         temp.setItem(20, userGUIConfiguration.getNickNameItem().getItemStack());
         temp.setItem(22, userGUIConfiguration.getPlayerHead().setHeadOwner(player.getName()).replacePlaceHolder("%player%", player.getName())
-                .replacePlaceHolder("%firstjoin%",playerData.getFirstJoinTime().format(dateTimeFormatter))
-                .replacePlaceHolder("%onelinetime%", String.valueOf(TimeUtil.convertMillisToDays(playerData.getOnlineTimeInMillis())))
+                .replacePlaceHolder("%firstjoin%",date.getYear()+"/"+date.getMonthValue()+"/"+date.getDayOfMonth())
+                .replacePlaceHolder("%onlinetime%", String.valueOf(TimeUtil.convertMillisToDays(playerData.getOnlineTimeInMillis())))
                 .replacePlaceHolder("%money%", String.valueOf(currencyPack.getMoney()))
                 .replacePlaceHolder("%bezants%",String.valueOf(currencyPack.getBezants()))
                 .replacePlaceHolder("%keys%",String.valueOf(currencyPack.getKeys()))

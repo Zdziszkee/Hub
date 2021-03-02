@@ -13,4 +13,5 @@ public class GeneralConfiguration extends Config {
     private GUIItemStack chooseGames = new GUIItemStack("example", Material.EYE_OF_ENDER, "lore");
     private GUIItemStack thirdItem = new GUIItemStack("example", Material.YELLOW_FLOWER, "lore");
     private String comingSoonMessage = "Coming soon";
+    private String serverConnectionErrorMessage = "could not connect to server";
 }
