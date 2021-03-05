@@ -1,5 +1,6 @@
 name: Hub
-main: me.zdziszkee.hub.Hub
+main: com.twodevsstudio.hub.Hub
 version: 1.0.0
+author: TwoDevsstudio
 depend:
   - WysCore

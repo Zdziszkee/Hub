@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.zdziszkee</groupId>
+    <groupId>com.twodevsstudio</groupId>
     <artifactId>Hub</artifactId>
     <version>1.0</version>
 
@@ -52,6 +52,7 @@
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.slighterr12</groupId>
@@ -60,7 +61,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>me.zdziszkee.wyscore</groupId>
+            <groupId>com.twodevsstudio.wyscore</groupId>
             <artifactId>WysCore</artifactId>
             <version>1.0</version>
             <scope>system</scope>
