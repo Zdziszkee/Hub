@@ -2,7 +2,7 @@ package com.twodevsstudio.hub.gui;
 
 import com.twodevsstudio.hub.configuration.ChooseGameGUIConfiguration;
 import com.twodevsstudio.hub.util.Coordinates;
-import com.twodevsstudio.hub.util.ServerConnectorUtil;
+import com.twodevsstudio.wyscore.utils.ConnectionUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -33,7 +33,7 @@ public class ChooseGameGUI implements GUI {
         int slot = inventoryClickEvent.getSlot();
 
         if (slot == chooseGameGUIConfiguration.getServerTeleport().getSlot()) {
-            ServerConnectorUtil.connect(player,chooseGameGUIConfiguration.getGameServerName());
+            ConnectionUtil.sendPlayerToServer(player,chooseGameGUIConfiguration.getGameServerName());
         }
         if (slot == chooseGameGUIConfiguration.getExitItemStack().getSlot()) {
             player.closeInventory();

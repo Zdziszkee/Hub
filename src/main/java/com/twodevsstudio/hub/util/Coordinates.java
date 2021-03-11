@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public class Coordinates {
+    private final String name;
     private final double x;
     private final double y;
     private final double z;

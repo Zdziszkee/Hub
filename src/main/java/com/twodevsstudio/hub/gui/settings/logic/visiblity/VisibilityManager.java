@@ -22,11 +22,11 @@ public class VisibilityManager {
     }
     public void enablePlayerVisibility(Player player){
         setPlayerVisibility(player,true);
-        Bukkit.getOnlinePlayers().forEach(target -> target.showPlayer(player));
+        Bukkit.getOnlinePlayers().forEach(player::showPlayer);
     }
     public void disablePlayerVisibility(Player player){
         setPlayerVisibility(player,false);
-        Bukkit.getOnlinePlayers().forEach(target -> target.hidePlayer(player));
+        Bukkit.getOnlinePlayers().forEach(player::hidePlayer);
     }
     public void addPlayerToHide(Player target){
         for(Map.Entry<UUID,Boolean> entry :playerVisibility.entrySet()){
